@@ -1,0 +1,79 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Home</title>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-database.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="fixed-top bg-primary"  >
+		<!-- header and menu -->
+		<div class="he" >
+			<div style="margin-top: 5px; margin-left: 5px; padding-bottom: 5px;">
+				<h1 id="he">NC STORIES</h1>
+			</div>
+
+			<div class="ml-auto">
+
+				<div class="h">
+					<h4><a class="h4" href="#abs"><svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user" class="svgs svg-inline--fa fa-user fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"></path></svg></a></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container card text-center" style="margin-top: 200px">
+		<h1 class="card-header">Your Profile</h1>
+		<div class="card-text">
+			<div style="display: inline-flex;">
+				<label for="p"><h3>Gmail :</h3></label>
+				<h3 id="p"></h3>
+			</div>
+			<br>
+			<br>
+			<div style="display: inline-flex;">
+				<label for=""u><h3>User Name :</h3></label>
+				<h3 id="u"></h3>
+			</div>
+			<div>
+				<img id="dp" width="50px" height="50px" src="">
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var firebaseConfig = {
+			apiKey: "AIzaSyBAf0UdPci7PF569boleWAErs4yphuDdwU",
+			authDomain: "nc-blog-9add2.firebaseapp.com",
+			projectId: "nc-blog-9add2",
+			storageBucket: "nc-blog-9add2.appspot.com",
+			messagingSenderId: "1050218274123",
+			appId: "1:1050218274123:web:72d39b22c6619db9275cce"
+		};
+		firebase.initializeApp(firebaseConfig);
+		firebase.auth().onAuthStateChanged(firebaseUser =>{
+
+			if (firebaseUser) {
+				console.log(firebaseUser);
+			}
+			var user = firebase.auth().currentUser;
+			var p = document.getElementById('p')
+			var u = document.getElementById('u')
+			var dp = document.getElementById('dp')
+			if (user != null) {
+				var email = user.email
+				p.innerHTML =  email
+				var username = user.displayName
+				u.innerHTML = username
+				var pic = user.photoURL
+				dp.src = pic
+			}
+
+		})
+	</script>
+	
+</body>
+</html>

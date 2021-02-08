@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="logo.png">
+	<title>Login To NC Stories</title>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+	<div id="sup"  class=" card container ls" >
+		<div class="text-center ncs" id="ord">
+			<h1 id="or" >NC Stories</h1>
+		</div>
+		<div class="text-center">
+
+			<!-- <div id="ord">
+				<p id="or" style="font-size: 20px">or</p>
+			</div> -->
+			<div>
+				<div style="display: inline-flex;margin-bottom: 10px;">
+					<input type="checkbox" style="margin-top: 2px; margin-right: 5px;" id="cbox">
+					<p style="color: grey">I agree all the <a href="https://www.termsandconditionsgenerator.com/live.php?token=zY0CT83QUzZGpFCoyJMqNipeSTUYaheA"><i>Terms and Conditions</i></a></p>
+				</div>
+				<br>
+				<button id="lwg" type="button" class="login-with-google-btn" onclick="sg()" disabled="disabled">
+					Login in with Google
+				</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var firebaseConfig = {
+			apiKey: "AIzaSyBAf0UdPci7PF569boleWAErs4yphuDdwU",
+			authDomain: "nc-blog-9add2.firebaseapp.com",
+			projectId: "nc-blog-9add2",
+			storageBucket: "nc-blog-9add2.appspot.com",
+			messagingSenderId: "1050218274123",
+			appId: "1:1050218274123:web:72d39b22c6619db9275cce"
+		};
+		firebase.initializeApp(firebaseConfig);
+		var cBox = document.getElementById("cbox")
+		var lwg = document.getElementById("lwg")
+		cBox.onchange = function(){
+			if(this.checked){
+				lwg.disabled = false;
+				lwg.style.color = "#757575"
+				lwg.style.backgroundColor = "white"
+			} else {
+				lwg.disabled = true;
+				lwg.style.color = "white"
+				lwg.style.backgroundColor = "#5e5e69"
+			}
+
+		}
+	</script>
+	<script type="text/javascript" src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="icon" href="logo.png">
+	<title>Post</title>
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<script src="https://www.gstatic.com/firebasejs/8.2.4/firebase.js"></script>
+	<link rel="stylesheet" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="upload.css">
+</head>
+<body>
+	<div class="fixed-top bg-primary"  >
+		<!-- header and menu -->
+		<div class="he" >
+			<div style="margin-top: 5px; margin-left: 5px; padding-bottom: 5px;">
+				<h1 id="he">NC STORIES</h1>
+			</div>
+
+			<div class="ml-auto">
+
+				
+				<div class="h">
+					<button type="button" class="btn btn-outline-light " id="lin" onclick="chg()">Login</button>
+					<button style="display: none;" type="button" class="btn btn-outline-light " id="lout" onclick="logout()">Logout</button>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div align="center" class="container" id="blogPost">
+		<h1 class="he1">Start Writing Your Story</h1>
+		<div class="input-group heading">
+			<label class="input-group-text" for="heading">Heading</label>
+			<input class="form-control" type="text"  id="heading">
+		</div>
+		<br>
+		<div >
+			<textarea class="form-control" cols="100" rows="30" style="resize:none" id="textArea" placeholder="Write Your Story" maxlength="1500" wrap="virtual"></textarea>
+			<br>
+			<button type="button" class="btn btn-primary btn-lg pb" id="pb" onclick="post()">POST YOUR STORY</button>
+		</div>
+		<br>
+	</div>
+
+	<!-- Bootstrap Scripts -->
+
+	<script type="text/javascript" src="jQuery.js"></script>
+	<script type="text/javascript" src="bootstrap.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript">
+		firebase.auth().onAuthStateChanged(firebaseUser =>{
+
+
+			if (firebaseUser) {
+				document.getElementById('lin').style.display = "none"
+				document.getElementById('lout').style.display = "block"
+			}
+			else{
+				document.getElementById('lin').style.display = "block"
+				document.getElementById('lout').style.display = "none"
+			}
+
+			
+		})
+	</script>
+</body>
+</html>
